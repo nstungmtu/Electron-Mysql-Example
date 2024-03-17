@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="fa/css/all.min.css">
+  </head>
+  <body>
+  <aside>
+    <menu id="SideMenu">
+      <li data-page="index.html">Users management</li>
+      <li class="active" data-page="roles.html">Roles management</li>
+    </menu>
+  </aside>
+  <main>
+    <h1>Roles management</h1>
+    <div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Role</td>
+              <td>Desciption</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody id="DataTable">
+          </tbody>
+        </table>
+      </div>
+      <div id="paginator">
+        <ul>
+          <li onclick="OnPaginatorItem_Click('first')"><i class="fa fa-angles-left"></i></li>
+          <li onclick="OnPaginatorItem_Click('prev')"><i class="fa fa-angle-left"></i></li>
+          <li onclick="OnPaginatorItem_Click('next')"><i class="fa fa-angle-right"></i></li>
+          <li onclick="OnPaginatorItem_Click('last')"><i class="fa fa-angles-right"></i></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="form-container">
+        <form action="#" id="MainForm" name="MainForm">
+          <div class="form-header">
+            <h2>Role Info</h2>
+            <div class="form-header-buttons">
+              <button class="primary-button" type="button" id="AddButton"><i class="fa fa-add"></i></button>
+            </div>
+          </div>
+          <fieldset disabled>
+            <input type="hidden" name="RoleID" value="">
+            <div>
+              <label for="RoleName">Role</label>
+              <input type="text" name="RoleName" id="RoleName">
+            </div>
+            <div>
+              <label for="Description">Desciption</label>
+              <input type="text" name="Description" id="Description">
+            </div>
+            <div class="form-buttons">
+              <button type="reset">Cancel</button>
+              <button type="submit" class="primary-button">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="renderer.roles.js"></script>
+  </body>
+</html>

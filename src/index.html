@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World!</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="fa/css/all.min.css">
+  </head>
+  <body>
+  <aside>
+    <menu id="SideMenu">
+      <li class="active" data-page="index.html">Users management</li>
+      <li data-page="roles.html">Roles management</li>
+    </menu>
+  </aside>
+  <main>
+    <h1>Users management</h1>
+    <div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <td>ID</td>
+              <td>Login</td>
+              <td>User's Name</td>
+              <td>Created</td>
+              <td>Last Updated</td>
+              <td>Status</td>
+              <td>Role</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody id="DataTable">
+          </tbody>
+        </table>
+      </div>
+      <div id="paginator">
+        <ul>
+          <li onclick="OnPaginatorItem_Click('first')"><i class="fa fa-angles-left"></i></li>
+          <li onclick="OnPaginatorItem_Click('prev')"><i class="fa fa-angle-left"></i></li>
+          <li onclick="OnPaginatorItem_Click('next')"><i class="fa fa-angle-right"></i></li>
+          <li onclick="OnPaginatorItem_Click('last')"><i class="fa fa-angles-right"></i></li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="form-container">
+        <form action="#" id="MainForm" name="MainForm">
+          <div class="form-header">
+            <h2>User Info</h2>
+            <div class="form-header-buttons">
+              <button class="primary-button" type="button" id="AddButton"><i class="fa fa-add"></i></button>
+            </div>
+          </div>
+          <fieldset disabled>
+            <input type="hidden" name="UserID" value="">
+            <div>
+              <label for="Login">Login</label>
+              <input type="text" name="Login" id="Login">
+            </div>
+            <div>
+              <label for="UserName">User's Name</label>
+              <input type="text" name="UserName" id="UserName">
+            </div>
+            <div>
+              <label for="RoleID">Role</label>
+              <select name="RoleID" id="RoleID">
+                <option value="Employee">Employee</option>
+                <option value="Manager">Manager</option>
+                <option value="Administrator">Administrator</option>
+              </select>
+            </div>
+            <div>
+              <label for="Disabled">User is disabled?<input type="checkbox" name="Disabled" id="Disabled" value="Disabled"></label>
+            </div>
+            <div class="form-buttons">
+              <button type="reset">Cancel</button>
+              <button type="submit" class="primary-button">Submit</button>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+  <script src="renderer.index.js"></script>
+  </body>
+</html>

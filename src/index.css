@@ -1,0 +1,290 @@
+:root{
+  --ideal-viewport-width: 1280;
+  --current-viewport-width: 100vw;
+  --ideal-font-size: 12;
+  --color-accent: #ec0e4d;
+  --color-accent-dark: #d20a43;
+  --color-accent-light: rgb(233, 63, 111);
+  --color-dark80: #1d252d;
+  --color-dark100: #0c0f15;
+  --color-light100: #f8f8f8;
+  --color-light80: #e8e8e8;
+  --color-dark-trans: rgba(0,0,0,0.25);
+  --nspace: 0.5rem;
+  font-size: calc(var(--ideal-font-size) * (var(--current-viewport-width) / var(--ideal-viewport-width)));/* Ideal 1em font-size */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--color-dark100);
+  color: var(--color-light100);
+  box-sizing: border-box;
+}
+.nowrap{
+  white-space: nowrap;
+}
+button, input, select{
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}
+body{
+  margin: 0px;
+  padding: var(--nspace);
+  display: grid;
+  grid-template-columns: 30ch 1fr;
+  gap: var(--nspace);
+}
+main {
+  margin: 0em;
+  padding: 0em;
+  width: 100%;
+  margin: 0px auto;
+  display:grid;
+  grid-template-columns: 1fr 40ch;
+  gap: var(--nspace);
+  >*{
+    background-color: var(--color-dark80);
+    padding: 1rem;
+    border-radius: 0.25rem;
+  }
+  h1{
+    margin: 0px;
+    grid-column: span 2;
+    line-height: 1em;
+  }
+}
+.table-container{
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    table-layout: auto;
+    th{
+      vertical-align: bottom;
+    }
+    td,th{
+      padding: 1.2ch 2ch;
+    }
+    td:last-child,th:last-child{
+      text-align: right;
+    }
+    thead{
+      box-shadow: 0px 0.5ch 0.5ch 0px rgba(0, 0, 0, 0.25);
+      border-bottom: 1ch solid transparent;
+    }
+    tbody{
+      color: var(--color-light80);
+      tr:nth-child(even),tr:hover{
+        background-color: rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+.text-align-center{
+  text-align: center;
+}
+.text-align-left{
+  text-align: left;
+}
+.text-align-right{
+  text-align: right;
+}
+.inline-button{
+  display: inline-flexbox;
+  align-self: flex-end;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0;
+  aspect-ratio: 1;
+  width: 3ch;
+  background-color: var(--color-light80);
+  color: var(--color-dark80);
+  border: none;
+  outline: none;
+  border-radius: 0.25ch;
+  cursor: pointer;
+  &:hover{
+    background-color: var(--color-light100);
+  }
+  &:not(:first-of-type){
+    margin-left: 0.5ch;
+  }
+  &.primary-button{
+    background-color: var(--color-accent);
+    color: var(--color-light100);
+    &:hover{
+      background-color: var(--color-accent-dark);
+    }
+  }
+}
+.form-container{
+  .form-header{
+    margin-bottom: var(--nspace);
+    display: grid;
+    grid-template-columns: auto auto;
+    h2{
+      margin: 0;
+      padding: 0;
+    }
+    .form-header-buttons{
+      text-align: right;
+      align-self: top;
+      button{
+        aspect-ratio: 1;
+        height: 100%;
+        width: auto;
+        padding: 0;
+      }
+    }
+  }
+  fieldset{
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    >div{
+      display: grid;
+      &:not(:first-of-type){
+        margin-top: var(--nspace);
+      }
+      label{
+        margin-bottom: calc(var(--nspace) / 2);
+        font-size: 0.8em;
+        accent-color: var(--color-accent);
+        >input{
+          margin-left: 0.25rem;
+          vertical-align: baseline;
+        }
+      }
+      input,select{
+        padding: var(--nspace);
+        background-color: var(--color-dark-trans);
+        border: none;
+        outline: none;
+        border-radius: 0.25rem;
+        font-size: 0.9em;
+        margin: 0px;
+      }
+    }
+    >div.form-buttons{
+      margin-top: 2ch;
+      grid-template-columns: 10ch auto;
+      gap: var(--nspace);
+    }
+  }
+}
+button{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: var(--color-light80);
+  color: var(--color-dark80);
+  font-size: 0.9em;
+  padding: var(--nspace);
+  line-height: 1em;
+  &:hover{
+    background-color: var(--color-light100);
+  }
+  &.primary-button{
+    background-color: var(--color-accent);
+    color: var(--color-light100);
+    &:hover{
+      background-color: var(--color-accent-dark);
+    }
+  }
+  &:disabled{
+    background-color: var(--color-dark-trans);
+    color: var(--color-light80);
+    &:hover{
+      background-color: var(--color-dark-trans);
+      cursor: not-allowed;
+    }
+  }
+  .fa{
+    line-height: 0;
+    text-align: center;
+  }
+}
+menu{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-dark80);
+  border-radius: 0.25rem;
+  display: grid;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+  li{
+    margin: 0px;
+    padding: 1rem 1rem 1rem calc(1rem + var(--nspace));
+    position: relative;
+    overflow: hidden;
+    &:not(:first-of-type){
+      border-top: 1px solid var(--color-dark-trans);
+    }
+    &.active,&:hover{
+      background-color: var(--color-dark-trans);
+    }
+    &.active::before{
+      position: absolute;
+      content: "";
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: var(--nspace);
+      background-color: var(--color-accent);
+    }
+  }
+}
+span.status{
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 0.75em;
+  background-color: var(--color-accent);
+  color: var(--color-light100);
+  border-radius: 1rem;
+  padding: 0.1rem 0.5rem;
+  line-height: 0.8rem;
+  &.disabled{
+    color: var(--color-light80);
+    background-color: var(--color-dark-trans);
+  }
+}
+#paginator{
+  text-align: right;
+  padding: 1rem 0 0 0;
+  >ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline-flex;
+    >li{
+      padding: 0.25rem;
+      cursor: pointer;
+      :hover{
+        color: var(--color-accent);
+      }
+    }
+  }
+}
+dialog{
+  border: none;
+  outline: none;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  opacity: 0;
+  transform-style: preserve-3d;
+  transform-origin: center bottom;
+  transform: perspective(5rem) rotateX(30deg);
+  transition: opacity 0.7s ease-out;
+  &[open]{
+    opacity: 1;
+    transform: perspective(5rem) rotateX(0deg);
+  }
+}
+::backdrop{
+  background-color: rgba(0, 0, 0, 0.75);
+}
